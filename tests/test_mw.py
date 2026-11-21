@@ -118,6 +118,20 @@ class Safety(unittest.TestCase):
         self.w("MelonLoader/Latest.log", "[12:00] Failed to load Melon Assembly CoolMod.dll\n")
         self.assertEqual(mw.proof(self.root, "CoolMod")["verdict"], "errored")
 
+    def test_proof_name_is_whole_identifier(self):
+        # 0.1.0 bug: --mod Missing matched another mod's MissingMethodException
+        self.w("BepInEx/LogOutput.log", "[Info   :   BepInEx] Loading [Missing 1.0.0]\n"
+               "[Error  : Other] System.MissingMethodException: Other.Missing.Run\n")
+        self.assertEqual(mw.proof(self.root, "Missing")["verdict"], "loaded")
+
+    def test_publish_workshop_cli_default_visibility(self):
+        # 0.1.0 bug: CLI without --visibility wrote "None"
+        self.w("mod/a.txt", "1")
+        self.assertEqual(mw.main(["publish-prep", "workshop", str(self.root / "mod"),
+                                  "--appid", "1", "--changenote", "x"]), 0)
+        vdf = (self.root / "mod.workshop.vdf").read_text(encoding="utf-8")
+        self.assertIn('"visibility"\t\t"2"', vdf)
+
     def test_proof_ue4ss_and_nolog(self):
         self.assertEqual(mw.proof(self.root, "X")["verdict"], "no-log")
         self.w("Game/Binaries/Win64/ue4ss/UE4SS.log", "Starting Lua mod 'FastTravel'\n")

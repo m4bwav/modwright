@@ -197,7 +197,8 @@ def proof(install, mod, log=None):
     if not logs:
         return {"mod": mod, "verdict": "no-log", "logs": [],
                 "note": "No loader log found. Run the game once with the loader, or pass --log."}
-    m = re.escape(mod)
+    # whole-identifier match: "Missing" must not hit "MissingMethodException" or "Other.Missing"
+    m = r"(?<![\w.])" + re.escape(mod) + r"(?![\w])"
     hits, errs = [], []
     for p in logs:
         for line in p.read_text(encoding="utf-8", errors="replace").splitlines():
@@ -222,7 +223,7 @@ def publish_prep(kind, folder, **kw):
         q = lambda s: str(s).replace("\\", "/").replace('"', "'")  # noqa: E731
         vals = {"appid": kw["appid"], "publishedfileid": kw.get("item") or "0",
                 "contentfolder": str(folder), "previewfile": kw.get("preview") or "",
-                "visibility": kw.get("visibility", "2"), "title": kw.get("title") or folder.name,
+                "visibility": kw.get("visibility") or "2", "title": kw.get("title") or folder.name,
                 "description": kw.get("description") or "", "changenote": kw["changenote"]}
         body = "".join(f'\t"{k}"\t\t"{q(v)}"\n' for k, v in vals.items())
         out = folder.parent / f"{folder.name}.workshop.vdf"
