@@ -15,19 +15,31 @@ Not for Minecraft (minewright), Roblox (roblox-agent) or MADNESS Project Nexus (
 
 ## Install
 
-Clone the repo and add its parent folder as a local Claude Code marketplace, or copy `skills/modwright` into your own plugin.
+In Claude Code:
+
+```
+/plugin marketplace add m4bwav/modwright
+/plugin install modwright@modwright
+```
+
+Or copy `skills/modwright` into your own plugin. Needs Python 3.9+ (standard library only).
 
 ## Use
 
-Ask in plain words: "mod this game", "which mod loader should I use", "back up my saves before modding", "did my mod load", "upload my mod to the Workshop". The script runs on its own too:
+Ask in plain words: "mod this game", "which mod loader should I use", "back up my saves before modding", "did my mod load", "upload my mod to the Workshop". The script runs on its own too. Every command prints JSON except `scan`, which prints `key: value` lines unless given `--json`; exit codes are 0 ok, 1 check failed, 2 anti-cheat (stop), 3 bad input.
 
 ```
-python skills/modwright/scripts/mw.py scan "C:/Games/MyGame"
+python skills/modwright/scripts/mw.py scan "C:/Games/MyGame" [--json]
 python skills/modwright/scripts/mw.py backup backups/1 "C:/Users/me/AppData/LocalLow/Co/Game" --build 123456
 python skills/modwright/scripts/mw.py restore backups/1 --verify
-python skills/modwright/scripts/mw.py proof "C:/Games/MyGame" --mod CoolMod
+python skills/modwright/scripts/mw.py proof "C:/Games/MyGame" --mod CoolMod [--log path/to/loader.log]
 python skills/modwright/scripts/mw.py publish-prep thunderstore mymod --version 1.0.0 --title CoolMod
+python skills/modwright/scripts/mw.py publish-prep workshop mymod --appid 480 --changenote "First" --visibility 2
 ```
+
+`publish-prep` also takes `--item`, `--preview`, `--description`, `--url` and repeated `--dep`. The Workshop VDF is written next to the folder, as `mymod.workshop.vdf`.
+
+Full documentation, with every command's options and verified output: the [wiki](https://github.com/m4bwav/modwright/wiki).
 
 ## License
 

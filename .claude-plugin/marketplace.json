@@ -1,0 +1,16 @@
+{
+  "name": "modwright",
+  "owner": {
+    "name": "Mark Rogers"
+  },
+  "metadata": {
+    "description": "Mod any PC game safely and prove the mod works"
+  },
+  "plugins": [
+    {
+      "name": "modwright",
+      "source": "./",
+      "description": "Identify engine and runtime, stop at anti-cheat, back up saves with hashes, pick the loader, prove the mod loaded from the loader log, prepare Workshop/Thunderstore uploads without sending them"
+    }
+  ]
+}
