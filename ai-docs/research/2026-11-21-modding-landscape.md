@@ -1,7 +1,7 @@
 # Modding landscape for modwright (2026-11-21)
 
 Research for a general "mod any PC game" agent plugin, generalised from madnesswright
-(D:/m4bwa/Claude/Projects/Ai/madnesswright: one game, MADNESS: Project Nexus. Its skills are madnesswright
+(the sibling madnesswright plugin: one game, MADNESS: Project Nexus. Its skills are madnesswright
 (official mod folder + info.txt + MadCards, save backup first, prove load via Mods/mods.log, Steam Workshop),
 madnesswright-modtools (Unity 2019 ModTools AssetBundles + Harmony 2.4.2 assemblies) and madnesswright-scenes (SceneTools levels)).
 Minecraft goes to the sibling `minewright`, Roblox to `roblox-agent`.
@@ -19,7 +19,7 @@ not re-verified today, so check it before codifying.
 | viktor-ferenczi `se-dev-skills` | Space Engineers 1 plugins, mods and scripts | Single game [web] https://agskills.dev/viktor-ferenczi/se-dev-skills/se-dev-mod |
 | Orinks/unity-scope | BepInEx 5 plugin that exposes a running Mono Unity game's scene graph over local HTTP as an MCP server. IL2CPP planned | Complement (runtime inspection). Recommend it, don't rebuild it [web] https://github.com/Orinks/unity-scope |
 | nowsprinting gameplay-mcp | MCP embedded in a player build you own | Not modding [web] https://nowsprinting.github.io/gameplay-mcp/ |
-| CoplayDev/unity-mcp, ivanmurzak/unity-mcp, Signal-Loop UnityCodeMCPServer | Unity **Editor** bridges | Not modding. Mark's unity-agent covers the editor [web] |
+| CoplayDev/unity-mcp, ivanmurzak/unity-mcp, Signal-Loop UnityCodeMCPServer | Unity **Editor** bridges | Not modding. the unity-agent plugin covers the editor [web] |
 | EpicGames unreal-engine-skills-for-claude-code | For building UE projects, not modding shipped games | None [web] https://github.com/EpicGames/unreal-engine-skills-for-claude-code-plugin |
 | Nexus GitHub Action (upload) | Official CI push of new files to an existing mod page | Use it, don't rebuild it [web] (see section 4) |
 
@@ -91,7 +91,7 @@ installed mod loader is the core tool (cheap, testable, deterministic).
 - Terms on automated upload: every host above offers token-based author uploads, so scripted uploads
   of the user's own mods are allowed. None permits scraping or re-uploading other people's mods. Policy for
   modwright: build the package and the exact command, and publish only on the user's explicit go-ahead
-  (this matches Mark's rule that registry publishing needs his OK).
+  (registry publishing always needs the owner's OK).
 
 ## 5. Safety and legality [known unless marked]
 
@@ -112,7 +112,7 @@ installed mod loader is the core tool (cheap, testable, deterministic).
 - **Backups**: before any change, copy the saves (Steam: `<userdata>/<id>/<appid>/remote`, Unity:
   `%USERPROFILE%/AppData/LocalLow/<Company>/<Game>`, UE: `%LOCALAPPDATA%/<Game>/Saved/SaveGames`,
   Documents/My Games). Record vanilla file hashes so an uninstall restores the game exactly. Steam
-  "Verify integrity" is the last resort. Mark's rule applies: don't walk AppData beyond the one game's
+  "Verify integrity" is the last resort. Rule: don't walk AppData beyond the one game's
   save folder without approval.
 - Game updates break mods: patches change the IL2CPP metadata and UE versions. Record the game build id
   (Steam `appmanifest_<appid>.acf` buildid) with each recipe.

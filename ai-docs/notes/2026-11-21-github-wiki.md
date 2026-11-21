@@ -1,6 +1,9 @@
 # GitHub wiki (2026-11-21)
 
-- Wiki: https://github.com/m4bwav/modwright/wiki, working copy D:/m4bwa/Claude/Projects/Ai/modwright.wiki (master, pushed over the placeholder by fast-forward).
+## Summary
+How the GitHub wiki was written and verified, and how to update it.
+
+- Wiki: https://github.com/m4bwav/modwright/wiki (local clone of the .wiki.git repo, master, pushed over the placeholder by fast-forward).
 - Pages: Home, Getting-Started, Commands, How-Detection-Works, Exit-Codes-And-Errors, Recipes, FAQ, Versions-And-Upgrading, Development, _Sidebar, _Footer. Pages naming the version: _Footer, Versions-And-Upgrading, FAQ (known issues), Getting-Started, Commands.
 - Verified against tag v0.1.0 (git archive into scratch) with `2026-11-21-wiki-verify.sh`; output saved as `2026-11-21-wiki-verify.out.txt` (scratch path masked `<scratch>`). wikiwright check, outputs (12 checked, 0 missing) and live (9 pages, 0 failures) all passed. 16 pytest tests pass.
 - Update: bump the tag in the script, rerun, `wikiwright.py diffout` old vs new, fix each changed page, bump the footer.
