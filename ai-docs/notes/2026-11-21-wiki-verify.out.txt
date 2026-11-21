@@ -1,0 +1,210 @@
+## python ../../skills/modwright/scripts/mw.py scan farm
+engine: Unity
+runtime: Mono
+anticheat: []
+loaders_installed: ['BepInEx 5']
+recommended_loader: BepInEx 5 (or MelonLoader)
+loader_logs: ['BepInEx/LogOutput.log']
+notes: []
+exit 0
+
+## python ../../skills/modwright/scripts/mw.py scan arena
+engine: Unity
+runtime: IL2CPP
+anticheat: ['Easy Anti-Cheat']
+loaders_installed: []
+recommended_loader: BepInEx 6 (or MelonLoader)
+loader_logs: []
+notes: ['Anti-cheat present: stop. No injection or memory patching; only official mod routes, single-player or offline.', 'No mod loader installed yet. Back up saves before installing one.']
+exit 2
+
+## python ../../skills/modwright/scripts/mw.py scan rpg
+engine: Unreal
+runtime: None
+anticheat: []
+loaders_installed: []
+recommended_loader: UE4SS (+ pak mods)
+loader_logs: []
+notes: ['No mod loader installed yet. Back up saves before installing one.']
+exit 0
+
+## python ../../skills/modwright/scripts/mw.py scan farm --json
+{
+  "install": "farm",
+  "engine": "Unity",
+  "runtime": "Mono",
+  "anticheat": [],
+  "loaders_installed": [
+    "BepInEx 5"
+  ],
+  "recommended_loader": "BepInEx 5 (or MelonLoader)",
+  "loader_logs": [
+    "BepInEx/LogOutput.log"
+  ],
+  "notes": []
+}
+exit 0
+
+## python ../../skills/modwright/scripts/mw.py scan nope
+not a directory: nope
+exit 3
+
+## python ../../skills/modwright/scripts/mw.py proof farm --mod FastHarvest
+{
+  "mod": "FastHarvest",
+  "verdict": "loaded",
+  "logs": [
+    "farm\\BepInEx\\LogOutput.log"
+  ],
+  "load_lines": [
+    "[Info   :   BepInEx] Loading [FastHarvest 1.0.0]"
+  ],
+  "error_lines": [],
+  "log_age_hours": 0.0
+}
+exit 0
+
+## python ../../skills/modwright/scripts/mw.py proof farm --mod MoreSeeds
+{
+  "mod": "MoreSeeds",
+  "verdict": "errored",
+  "logs": [
+    "farm\\BepInEx\\LogOutput.log"
+  ],
+  "load_lines": [],
+  "error_lines": [
+    "[Error  :   BepInEx] Error loading [MoreSeeds 0.3.0]: System.MissingMethodException: Method not found: 'Void CropManager.AddSeed(System.String)'"
+  ],
+  "log_age_hours": 0.0
+}
+exit 1
+
+## python ../../skills/modwright/scripts/mw.py proof farm --mod CoolMod
+{
+  "mod": "CoolMod",
+  "verdict": "not-seen",
+  "logs": [
+    "farm\\BepInEx\\LogOutput.log"
+  ],
+  "load_lines": [],
+  "error_lines": [],
+  "log_age_hours": 0.0
+}
+exit 1
+
+## python ../../skills/modwright/scripts/mw.py proof farm --mod Missing
+{
+  "mod": "Missing",
+  "verdict": "errored",
+  "logs": [
+    "farm\\BepInEx\\LogOutput.log"
+  ],
+  "load_lines": [],
+  "error_lines": [
+    "[Error  :   BepInEx] Error loading [MoreSeeds 0.3.0]: System.MissingMethodException: Method not found: 'Void CropManager.AddSeed(System.String)'"
+  ],
+  "log_age_hours": 0.0
+}
+exit 1
+
+## python ../../skills/modwright/scripts/mw.py proof rpg --mod CoolMod
+{
+  "mod": "CoolMod",
+  "verdict": "no-log",
+  "logs": [],
+  "note": "No loader log found. Run the game once with the loader, or pass --log."
+}
+exit 1
+
+## python ../../skills/modwright/scripts/mw.py backup bk farm/saves --build 123456
+{
+  "backup": "bk",
+  "files": 1,
+  "build": "123456"
+}
+exit 0
+
+## python ../../skills/modwright/scripts/mw.py restore bk --verify
+{
+  "backup_ok": true,
+  "corrupt_in_backup": [],
+  "live_differs": [
+    "<scratch>/evals/fixtures/farm/saves/slot1.sav"
+  ],
+  "restored": 0,
+  "build": "123456"
+}
+exit 1
+
+## python ../../skills/modwright/scripts/mw.py restore bk
+{
+  "backup_ok": true,
+  "corrupt_in_backup": [],
+  "live_differs": [
+    "<scratch>/evals/fixtures/farm/saves/slot1.sav"
+  ],
+  "restored": 1,
+  "build": "123456"
+}
+exit 0
+
+## python ../../skills/modwright/scripts/mw.py restore bk --verify
+{
+  "backup_ok": true,
+  "corrupt_in_backup": [],
+  "live_differs": [],
+  "restored": 0,
+  "build": "123456"
+}
+exit 0
+
+## python ../../skills/modwright/scripts/mw.py backup bk farm/saves
+{"error": "backup folder not empty: bk"}
+exit 3
+
+## python ../../skills/modwright/scripts/mw.py publish-prep thunderstore mymod --version 1.0.0 --title CoolMod
+{
+  "wrote": "<scratch>\\evals\\fixtures\\mymod\\manifest.json",
+  "missing": [
+    "icon.png",
+    "README.md"
+  ],
+  "next": "tcli build, then tcli publish (needs TCLI_AUTH_TOKEN)",
+  "note": "Thunderstore also needs a 256x256 icon.png and README.md."
+}
+exit 0
+
+{
+  "name": "CoolMod",
+  "version_number": "1.0.0",
+  "website_url": "",
+  "description": "",
+  "dependencies": []
+}
+## python ../../skills/modwright/scripts/mw.py publish-prep thunderstore mymod --version 1.0 --title CoolMod
+{"error": "--version must be MAJOR.MINOR.PATCH"}
+exit 3
+
+## python ../../skills/modwright/scripts/mw.py publish-prep workshop ws --changenote First
+{"error": "--appid is required"}
+exit 3
+
+## python ../../skills/modwright/scripts/mw.py publish-prep workshop ws --appid 480 --changenote First
+{
+  "wrote": "<scratch>\\evals\\fixtures\\ws.workshop.vdf",
+  "next": "steamcmd +login <user> +workshop_build_item \"<scratch>/evals/fixtures/ws.workshop.vdf\" +quit",
+  "note": "Prepared only. Upload needs the owner's login and explicit go-ahead."
+}
+exit 0
+
+"workshopitem"
+{
+	"appid"		"480"
+	"publishedfileid"		"0"
+	"contentfolder"		"<scratch>/evals/fixtures/ws"
+	"previewfile"		""
+	"visibility"		"None"
+	"title"		"ws"
+	"description"		""
+	"changenote"		"First"
+}
