@@ -39,6 +39,10 @@ python skills/modwright/scripts/mw.py publish-prep workshop mymod --appid 480 --
 
 `publish-prep` also takes `--item`, `--preview`, `--description`, `--url` and repeated `--dep`. The Workshop VDF is written next to the folder, as `mymod.workshop.vdf`.
 
+## Example
+
+[people-playground-portal-kit](https://github.com/m4bwav/people-playground-portal-kit) is a People Playground contraption made with modwright: scanned, saves backed up, built, proved in game, and published to the Steam Workshop. It unlocks the Uncharted Territory achievement.
+
 Full documentation, with every command's options and verified output: the [wiki](https://github.com/m4bwav/modwright/wiki).
 
 ## License

@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- README: link the People Playground portal kit as a worked example, so readers can see a full run from scan to Workshop.
+
 ## 0.1.1 (2026-11-21)
 - Fix: `publish-prep workshop` without `--visibility` wrote "None"; it now defaults to 2 (private), as SKILL.md says.
 - Fix: `proof` matched the mod name as a substring, so `--mod Missing` hit another mod's `MissingMethodException`; it now matches whole identifiers.
