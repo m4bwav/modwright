@@ -33,4 +33,4 @@ The safety and proof layer every game mod needs. A mod is done only when a loade
 
 ## Maintenance
 
-Evergreen unit pending (session 4): research lives in `ai-docs/research/` of the repository until RESEARCH.md exists.
+Evergreen unit at the repository root: `evergreen.json`, RESEARCH.md, CHANGELOG.md, LEARNINGS.md, TESTS.md (evals in `evals/`). Refresh every 30 days; check volatile loader facts against their docs before relying on them.

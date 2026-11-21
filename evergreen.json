@@ -1,0 +1,23 @@
+{
+  "evergreen": "1.0",
+  "name": "modwright",
+  "kind": "plugin",
+  "main": "skills/modwright/SKILL.md",
+  "files": {"research": "RESEARCH.md", "changelog": "CHANGELOG.md", "learnings": "LEARNINGS.md", "tests": "TESTS.md"},
+  "protocol": "plugin",
+  "source": null,
+  "topic": "PC game modding safety: engine detection, anti-cheat, save backups, loaders (BepInEx, MelonLoader, UE4SS, Harmony), loader-log proof, Workshop and Thunderstore packaging",
+  "tier": "moderate",
+  "interval_days": 30,
+  "last_checked": "2026-11-21",
+  "next_due": "2026-12-21",
+  "verify_at_use": false,
+  "volatile_claims": ["BepInEx 6 and MelonLoader IL2CPP support", "UE4SS mods folder layout", "Thunderstore manifest fields", "steamcmd workshop_build_item VDF keys", "anti-cheat file markers"],
+  "contradiction": null,
+  "events": [],
+  "streak": {"quiet": 0, "pinned_min": 0, "pinned_max": 0, "vau_quiet": 0},
+  "history": [{"date": "2026-11-21", "m": null, "interval_after": 30, "note": "created"}],
+  "counts": {"learnings": 2, "changes": 1, "research": 1, "tests": 1},
+  "consolidate_every": 25,
+  "tests": {"last_run": "2026-11-21", "harness": "evergreen-tester subagents", "env": "windows", "cases": 4, "passed": 4, "failed": 0, "failing": [], "last_failure": null, "research_after_days": null}
+}
