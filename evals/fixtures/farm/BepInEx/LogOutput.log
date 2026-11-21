@@ -1,0 +1,4 @@
+[Info   :   BepInEx] BepInEx 5.4.23 - Farm
+[Info   :   BepInEx] Loading [FastHarvest 1.0.0]
+[Error  :   BepInEx] Error loading [MoreSeeds 0.3.0]: System.MissingMethodException: Method not found: 'Void CropManager.AddSeed(System.String)'
+[Message:   BepInEx] Chainloader startup complete
