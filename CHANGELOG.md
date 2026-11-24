@@ -1,6 +1,7 @@
 # Changelog
 
-## Unreleased
+## 0.1.2 (2026-11-24)
+- SKILL.md step 9: when a mod is republished, update the description, screenshots and previews, videos, change note, changelog, version, README, wiki and release with it, and report each. Garry's Mod gmad/gmpublish route and a Steamworks UGC updater for what gmpublish cannot set.
 - README: link the People Playground portal kit as a worked example, so readers can see a full run from scan to Workshop.
 
 ## 0.1.1 (2026-11-21)

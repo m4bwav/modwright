@@ -1,6 +1,6 @@
 {
   "name": "modwright",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Mod any PC game safely: identify engine and runtime, stop at anti-cheat, back up saves with hashes before touching anything, decompile before naming a patch target, pick the loader (BepInEx, MelonLoader, UE4SS, Harmony), prove the mod loaded from the loader log, prepare Workshop/Thunderstore uploads without sending them. mw.py scan, backup, restore, proof, publish-prep.",
   "skills": "./skills",
   "author": {
