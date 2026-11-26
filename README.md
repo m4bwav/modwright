@@ -2,7 +2,7 @@
 
 ![modwright banner](.github/images/banner.jpg)
 
-Mod any PC game safely and prove the mod works. A Claude Code plugin with one skill and a standard-library script.
+Mod any PC game safely and prove the mod works. An agent plugin with one skill and a standard-library script.
 
 - Finds the engine and runtime (Unity Mono or IL2CPP, Unreal, Godot, GameMaker, Source and more) and the loader to use.
 - Stops at anti-cheat (EAC, BattlEye, Vanguard...): no injection, no memory patching, no online cheats.
